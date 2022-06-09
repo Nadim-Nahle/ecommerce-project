@@ -7,6 +7,7 @@ use App\Models\Item;
 
 class ItemController extends Controller
 {
+    //GET ALL ITEMS CONTROLLER
     public function getAllItems($id = null){
         $items = Item::all();
         return response()->json([
@@ -14,4 +15,20 @@ class ItemController extends Controller
             "Items" => $items
         ],200);
      }
+
+     //GET ONE ITEM CONTROLLER
+     public function getItem($id = null){
+        if($id){
+            $item = Item::find($id);
+        }
+        else{
+            $item = Item::all();
+        }
+        
+        return response()->json([
+            "status" => "success",
+            "items" => $item
+        ],200);
+     }
 }
+

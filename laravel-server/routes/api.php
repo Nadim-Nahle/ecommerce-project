@@ -22,6 +22,7 @@ Route::group(['prefix' => 'v1'], function (){
     Route::group(['prefix' => 'items'], function (){
     
         Route::get('/allitems', [ItemController::class, 'getAllItems']);
+        Route::get('/item/{id?}', [ItemController::class, 'getItem']);
         
     });
     
