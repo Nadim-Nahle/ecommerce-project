@@ -29,28 +29,16 @@
         <form class="register-form" id="signup" method="" action="">
           <div id="error"></div>
           <input type="text" name="name" placeholder="Username" required id="username" />
-          <input
-            id="email"
-            type="email"
-            name="email"
-            placeholder="Email"
-            required
-          />
-          <input
-            id="pwd"
-            type="password"
-            name="password"
-            placeholder="Password"
-            minlength="6"
-            required
-          />
+          <input id="email" type="email" name="email" placeholder="Email" required/>
+          <input id="pwd"type="password" name="password" placeholder="Password" minlength="6"required/>
+          <input id="pwd-confirm" type="password" name="password" placeholder="Password" minlength="6"required/>
           
           <button type="submit" id="sign-up-btn">SIGN UP</button>
         </form>
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="apis.js"></script>
+    <script src="js/apis.js"></script>
     <script src = "js/render.js"></script>
   </body>
 </html>
