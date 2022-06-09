@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ItemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,3 +16,15 @@ use App\Http\Controllers\AuthController;
 |
 */
 
+Route::group(['prefix' => 'v1'], function (){
+
+
+    Route::group(['prefix' => 'items'], function (){
+    
+        Route::get('/allitems', [ItemController::class, 'getAllItems']);
+        
+    });
+    
+   
+    
+});
