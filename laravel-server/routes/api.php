@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,13 @@ Route::group(['prefix' => 'v1'], function (){
             Route::post('/logout', [AuthController::class, 'logout']);
         });
     
+    });
+
+    //ADMIN GROUP
+    Route::group(['prefix' => 'admin'], function (){
+        Route::group(['middleware' => 'role.item'], function(){
+            Route::get('/additem', [AdminController::class, 'addItem']);
+        });       
     });
     
 });
