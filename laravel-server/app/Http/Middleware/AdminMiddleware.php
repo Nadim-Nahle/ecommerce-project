@@ -18,6 +18,7 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {   
+        return $next($request); 
         $user = response() -> json(auth()->user());
         
         return $user;

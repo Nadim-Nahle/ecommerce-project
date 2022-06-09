@@ -43,8 +43,10 @@ Route::group(['prefix' => 'v1'], function (){
 
     //ADMIN GROUP
     Route::group(['prefix' => 'admin'], function (){
+
         Route::group(['middleware' => 'role.item'], function(){
-            Route::get('/additem', [AdminController::class, 'addItem']);
+
+            Route::post('/additem', [AdminController::class, 'addItem']);
         });       
     });
     
