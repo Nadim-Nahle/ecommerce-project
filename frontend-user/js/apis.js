@@ -22,7 +22,7 @@ if( signupBtn){
       console.log(result.message);
       let message = result.status;
       if(result.message){
-        location.href = 'file:///C:/xampp/htdocs/ecommerce-project/frontend-user/signin.html';
+        location.href = 'file:///C:/xampp/htdocs/ecommerce-project/frontend-user/login.html';
      };
 
                 
