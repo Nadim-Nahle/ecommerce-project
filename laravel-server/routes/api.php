@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\FavouriteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,7 +54,7 @@ Route::group(['prefix' => 'v1'], function (){
     //FAVOURITES GROUP 
     Route::group(['prefix' => 'fav'], function (){ 
 
-        Route::post('/addtofav', [AdminController::class, 'addItemFav']);
+        Route::post('/addtofav', [FavouriteController::class, 'addItemFav']);
     });
 
 });
