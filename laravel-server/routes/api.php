@@ -55,6 +55,7 @@ Route::group(['prefix' => 'v1'], function (){
     Route::group(['prefix' => 'fav'], function (){ 
 
         Route::post('/addtofav', [FavouriteController::class, 'addItemFav']);
+        Route::get('/fav', [FavouriteController::class, 'getfav']);
     });
 
 });

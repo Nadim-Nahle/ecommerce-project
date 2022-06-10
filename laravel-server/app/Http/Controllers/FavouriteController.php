@@ -20,4 +20,18 @@ class FavouriteController extends Controller
             "status" => "Success"
             ], 200);
      }
+
+     public function getfav($id = null){
+        if($id){
+            $favourite = favourite::find($id);
+        }
+        else{
+            $favourite = favourite::all();
+        }
+        
+        return response()->json([
+            "status" => "success",
+            "favourites" => $favourite
+        ],200);
+     }
 }
