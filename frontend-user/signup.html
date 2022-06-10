@@ -7,20 +7,8 @@
     <title>Signup</title>
 
     <title>Signup</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="./styles/register.css" />
+   
+    <link rel="stylesheet" href="./css/register.css" />
   </head>
   <body>
     <div class="login-page">
@@ -29,27 +17,16 @@
         <form class="register-form" id="signup" method="" action="">
           <div id="error"></div>
           <input type="text" name="name" placeholder="Username" required id="username" />
-          <input
-            id="email"
-            type="email"
-            name="email"
-            placeholder="Email"
-            required
-          />
-          <input
-            id="pwd"
-            type="password"
-            name="password"
-            placeholder="Password"
-            minlength="6"
-            required
-          />
+          <input id="email" type="email" name="email" placeholder="Email" required/>
+          <input id="pwd"type="password" name="password" placeholder="Password" minlength="6"required/>
+          <input id="pwd-confirm" type="password" name="password" placeholder="Password" minlength="6"required/>
           
           <button type="submit" id="sign-up-btn">SIGN UP</button>
         </form>
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="apis.js"></script>
+    <script src="js/apis.js"></script>
+    <script src = "js/render.js"></script>
   </body>
 </html>
