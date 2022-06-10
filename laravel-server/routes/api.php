@@ -49,5 +49,11 @@ Route::group(['prefix' => 'v1'], function (){
             Route::post('/additem', [AdminController::class, 'addItem']);
         });       
     });
-    
+
+    //FAVOURITES GROUP 
+    Route::group(['prefix' => 'fav'], function (){ 
+
+        Route::post('/addtofav', [AdminController::class, 'addItemFav']);
+    });
+
 });
