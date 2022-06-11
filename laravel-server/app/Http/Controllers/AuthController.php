@@ -7,6 +7,7 @@ use Auth;
 use Illuminate\Support\Facades\Validator;
 
 use App\Models\User;
+use App\Models\Favourite;
 
 class AuthController extends Controller
 {   
@@ -57,7 +58,8 @@ class AuthController extends Controller
             'access_token'=>$token,
             'token_type'=>'bearer',
             'expires_in'=>auth()->factory()->getTTl()*60,
-            'user'=>auth()->user()
+            'user'=>auth()->user(),
+            
         ]);
     }
 
@@ -75,4 +77,6 @@ class AuthController extends Controller
         ]);
     }
 
+    
+    
 }

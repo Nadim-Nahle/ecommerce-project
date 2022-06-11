@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
 class AdminMiddleware
@@ -16,12 +16,26 @@ class AdminMiddleware
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next)
-    {   
-        return $next($request); 
-        $user = response() -> json(auth()->user());
+    public function handle(Request $request, Closure $next){
         
-        return $user;
+       // return $next($request);
+        //$result= response()->json([
+            
+            
+         //   'user'=>auth()->user(),
+            
+       // ]);
+       $user = Auth::user();
+        if($user && $user->type === 2){
+            return $next($request);
+        }
+       return response() -> json([
+           "response" => "unauthorized"
+       ]);
+   
+        
+        //$user = response() -> json(auth()->user()->id);
+        //return $user;
         
     }
 }

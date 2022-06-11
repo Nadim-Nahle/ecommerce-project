@@ -15,9 +15,10 @@ class FavouriteController extends Controller
         
         //$favourite->user_id = $request->user_id;
         $favourite->save();
-            
+           
         return response()->json([
-            "status" => "Success"
+            "status" => "Success",
+            
             ], 200);
      }
 

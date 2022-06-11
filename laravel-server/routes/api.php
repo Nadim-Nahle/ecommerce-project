@@ -38,6 +38,7 @@ Route::group(['prefix' => 'v1'], function (){
             Route::post('/login', [AuthController::class, 'login']);
             Route::get('/profile', [AuthController::class, 'profile']);
             Route::post('/logout', [AuthController::class, 'logout']);
+            
         });
     
     });
@@ -53,9 +54,14 @@ Route::group(['prefix' => 'v1'], function (){
 
     //FAVOURITES GROUP 
     Route::group(['prefix' => 'fav'], function (){ 
-
-        Route::post('/addtofav', [FavouriteController::class, 'addItemFav']);
-        Route::get('/fav', [FavouriteController::class, 'getfav']);
+        Route::group(['middleware'=>'api', 'prefix' => 'auth'],function($router){
+            Route::group(['middleware' => 'role.item'], function(){
+                Route::post('/addtofav', [FavouriteController::class, 'addItemFav']);
+                Route::get('/fav/{id?}', [FavouriteController::class, 'getfav']);
+            });
+            
+            
+        });
     });
 
 });
