@@ -722,3 +722,6 @@ border: solid 0.1px #646262b0;
 #logout:hover {
   opacity: 0.75;
 }
+#body{
+  display:none;
+}

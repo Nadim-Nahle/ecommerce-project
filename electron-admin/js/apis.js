@@ -80,8 +80,21 @@ let newItem = document.querySelector(".new-item ");
   })
   .then(function (response) {
       let result = (response.data);
+      localStorage.clear();
       console.log(result)
       });
 
-
   })
+
+
+  //Authorization script
+  var body = document.getElementById("body");
+  window.addEventListener('load', (event) => {
+    if (bearer){
+      body.style.display='block';
+    }
+    else{
+      body.innerHTML="UNAUTHORIZED";
+      body.style.display='block';
+    }
+  });
