@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <header class="header-dash">
+      <div class="container row">
+        <button class="nav-toggle" aria-label="open navigation">
+          <span class="hamburger"></span>
+        </button>
+        <a class="logo" href="#">
+            <img src="./assets/img/newlogo.png" alt="store logo" />
+        </a>
+        <nav class="nav">
+          <ul class="nav__list nav__list--primary">
+            <li class="nav__item"><a href="#" class="nav__link">Home</a></li>
+          </ul>
+          <ul class="nav__list nav__list--secondary">
+            <li class="nav__item">
+              <a href="./register.html" class="nav__link">Logout</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="row">
+    <div class="action-container">
+      <div class="monitorreviews"> <button>Delete Items</button></div>
+      
+    </div>
+    </div>
+    <div class="container dashboard-container">
+      <form class="admin-form" id="contact" action="" method="post">
+
+        <h3>Add new Item</h3>
+        <h4>add new Item info</h4>
+        <fieldset>
+          <input
+            placeholder="Item Name"
+            type="text"
+            tabindex="1"
+            id="rest-name"
+            required
+            autofocus
+          />
+        <fieldset>
+          <textarea placeholder="Description" id="rest-description" tabindex="4" required> </textarea>
+        </fieldset>
+        <fieldset>
+          <label>Add Item Image</label><br />
+          <input name="img" type="file" />
+        </fieldset>
+        <br />
+        <fieldset>
+          <button
+            name="submit"
+            type="submit"
+            id="contact-submit"
+            data-submit="...Sending"
+          >
+            Submit
+          </button>
+        </fieldset>
+      </form>
+    </div>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="apis.js"></script>
+  </body>
+</html>
