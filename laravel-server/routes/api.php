@@ -45,17 +45,18 @@ Route::group(['prefix' => 'v1'], function (){
 
     //ADMIN GROUP
     Route::group(['prefix' => 'admin'], function (){
+        Route::group(['middleware'=>'api', 'prefix' => 'auth'],function($router){
+            Route::group(['middleware' => 'role.item'], function(){
 
-        Route::group(['middleware' => 'role.item'], function(){
-
-            Route::post('/additem', [AdminController::class, 'addItem']);
-        });       
+                Route::post('/additem', [AdminController::class, 'addItem']);
+            });       
+        });
     });
 
     //FAVOURITES GROUP 
     Route::group(['prefix' => 'fav'], function (){ 
         Route::group(['middleware'=>'api', 'prefix' => 'auth'],function($router){
-            Route::group(['middleware' => 'role.item'], function(){
+            Route::group(['middleware' => 'role.user'], function(){
                 Route::post('/addtofav', [FavouriteController::class, 'addItemFav']);
                 Route::get('/fav/{id?}', [FavouriteController::class, 'getfav']);
             });
