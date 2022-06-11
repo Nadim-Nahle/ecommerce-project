@@ -70,4 +70,18 @@ let newItem = document.querySelector(".new-item ");
   })
   }
 
+  //Logout Script
+  let logoutBtn = document.getElementById("logout");
+  logoutBtn.addEventListener("click", function(event){
+    axios({
+      method: 'post',
+      url: 'http://127.0.0.1:8000/api/v1/user/auth/logout',
+      headers: {'Authorization': 'Bearer '+bearer}
+  })
+  .then(function (response) {
+      let result = (response.data);
+      console.log(result)
+      });
 
+
+  })
