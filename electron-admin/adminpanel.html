@@ -26,7 +26,7 @@
         <button class="nav-toggle" aria-label="open navigation">
           <span class="hamburger"></span>
         </button>
-        <a class="logo" href="#">
+        <a class="logo" href="#" >
             <img src="./assets/img/newlogo.png" alt="store logo" />
         </a>
         <nav class="nav">
@@ -35,7 +35,7 @@
           </ul>
           <ul class="nav__list nav__list--secondary">
             <li class="nav__item">
-              <a href="./register.html" class="nav__link">Logout</a>
+              <button id='logout' class="" type="button">Logout</button>
             </li>
           </ul>
         </nav>
@@ -43,24 +43,20 @@
     </header>
     <div class="row">
     <div class="action-container">
-      <div class="monitorreviews"> <button>Delete Items</button></div>
-      
+      <div class="monitorreviews"> <button>Delete Items</button></div> 
+    </div> 
     </div>
-    </div>
+
     <div class="container dashboard-container">
       <form class="admin-form" id="contact" action="" method="post">
 
         <h3>Add new Item</h3>
         <h4>add new Item info</h4>
         <fieldset>
-          <input
-            placeholder="Item Name"
-            type="text"
-            tabindex="1"
-            id="rest-name"
-            required
-            autofocus
-          />
+          <input placeholder="Item Name" type="text" tabindex="1" id="rest-name" required autofocus/>
+        <fieldset>
+        <fieldset style="width: 1px;">
+          <input placeholder="Item Price" type="number"  id="rest-price" required autofocus/>
         <fieldset>
           <textarea placeholder="Description" id="rest-description" tabindex="4" required> </textarea>
         </fieldset>
@@ -70,18 +66,13 @@
         </fieldset>
         <br />
         <fieldset>
-          <button
-            name="submit"
-            type="submit"
-            id="contact-submit"
-            data-submit="...Sending"
-          >
-            Submit
-          </button>
+          <button name="submit" type="submit" id="contact-submit"> Submit </button>
         </fieldset>
       </form>
+      <div class="new-item"></div>
     </div>
+    
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="apis.js"></script>
+  <script src="js/apis.js"></script>
   </body>
 </html>

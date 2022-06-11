@@ -698,3 +698,27 @@ fieldset {
 .logo > img {
   width: 100px;
 }
+
+fieldset > input[type=number]
+{ 
+border: solid 0.1px #646262b0;
+
+}
+
+.new-item{
+  text-align: center;
+  padding-top: 30px;
+  font-size: 50px;
+  color: rgb(255, 0, 0);
+}
+#logout{
+  --clr-navy: hsl(233, 100%, 38%);
+  background-color: hsl(233, 27%, 36%);
+  border :2px;
+  font-size: 25px;
+  cursor: pointer;
+  color: white;
+}
+#logout:hover {
+  opacity: 0.75;
+}

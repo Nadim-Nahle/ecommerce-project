@@ -3,7 +3,7 @@
 const loginBtn = document.querySelector("#login-btn");
 const emailLogin = document.getElementById("email-login");
 const passwordlogin = document.getElementById("password-login");
-
+if(loginBtn){
   loginBtn.addEventListener("click", function (event) {
  
     event.preventDefault();
@@ -19,13 +19,55 @@ const passwordlogin = document.getElementById("password-login");
    }).then(function (response) {
         
         let result = (response.data);
-        //console.log(result.token_type);
+        const jwt = result.access_token;
+        //console.log(jwt);
+        localStorage.setItem('jwt', jwt);
         if(result.token_type == 'bearer'){
-          location.href = 'file:///C:/xampp/htdocs/ecommerce-project/frontend-user/index.html';
-        }       
-
+          window.open('adminpanel.html');;
+        }     
    })
      
-
 });
+}
+
+var bearer = localStorage.getItem('jwt');
+
+//Add Item Script
+let restBtn = document.getElementById("contact-submit");
+let newImage = document.getElementById("new-image ");
+let newItem = document.querySelector(".new-item ");
+  if(restBtn){
+    restBtn.addEventListener("click", function(event){
+      event.preventDefault();
+      
+      const itemName = document.getElementById("rest-name").value;
+      const itemDescription = document.getElementById("rest-description").value;
+      const itemPrice = document.getElementById("rest-description").value;
+      console.log(bearer);
+      let data = new FormData();
+      data.append('name', itemName);
+      data.append('detail', itemDescription);
+      data.append('price', itemPrice);
+      
+      axios({
+          method: 'post',
+          url: 'http://127.0.0.1:8000/api/v1/admin/auth/additem',
+          data: data,
+          headers: {'Authorization': 'Bearer '+bearer}
+      })
+      .then(function (response) {
+        let result = (response.data);
+        //console.log(result)
+        let message = result.status;
+        console.log(message);
+        if (message === 'Success'){
+          console.log("hello");
+          newItem.innerHTML = 'New Item Added !!!!!';
+        }
+                     
+      })
+      
+  })
+  }
+
 
