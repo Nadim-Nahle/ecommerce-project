@@ -12,8 +12,9 @@ class AdminController extends Controller
         $item = new item;
         $item->name = $request->name;
         $item->detail = $request->detail;
-        $item->category_id = $request->category_id;
+        $item->category_id = '1';
         $item->price = $request->price;
+        $item->pic_link = $request->pic_link;
         
         $item->save();
             

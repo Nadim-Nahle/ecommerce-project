@@ -25,7 +25,7 @@ class ItemController extends Controller
             $item = Item::all();
         }
         
-        return response()->json([
+        return response()->json([ 
             "status" => "success",
             "items" => $item
         ],200);

@@ -54,4 +54,9 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
+
+    public function favoritedItems(){
+
+        return $this->belongsToMany(Item::class, 'favorites');
+    }
 }
