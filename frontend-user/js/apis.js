@@ -52,9 +52,11 @@ if(loginBtn){
    }).then(function (response) {
         
         let result = (response.data);
+        const jwt = result.access_token;
+        localStorage.setItem('jwt', jwt);
         //console.log(result.token_type);
         if(result.token_type == 'bearer'){
-          location.href = 'file:///C:/xampp/htdocs/ecommerce-project/frontend-user/index.html';
+          location.href = 'file:///C:/xampp/htdocs/ecommerce-project/frontend-user/item.html';
         }
         
               
@@ -83,50 +85,13 @@ if(nxtBtns){
         //console.log(result.items.length);
         for (let i =0; i<result.items.length; i++){
           newName = (result.items[i].name);
-          console.log(newName);
+          //console.log(newName);
           newDescription =(result.items[i].detail);
-          console.log(newDescription);
+          //console.log(newDescription);
           newPic =(result.items[i].pic_link);
-          console.log(newPic);
+          //console.log(newPic);
           
-          const itemContainer = document.querySelector(".item-container");
-          const itemCard = document.createElement("div");
-          itemCard.classList.add("item-card");
-
-          const itemImage = document.createElement("div");
-          itemImage.classList.add("item-image");
-          
-
-          const itemInfo = document.createElement("div");
-          itemInfo.classList.add("item-info");
-
-          const a = document.createElement("a");
-
-          const img = document.createElement("img");
-          img.classList.add("item-thumb");
-          img.src = newPic;
-
-          const fav = document.createElement("button");
-          fav.classList.add("card-btn");
-
-          const h2 = document.createElement("h2");
-          h2.classList.add("item-name");
-          h2.innerHTML=newName;
-
-          const p1 = document.createElement("p");
-          p1.classList.add("item-short-description");
-          p1.innerHTML=newDescription;
-
-          itemContainer.appendChild(itemCard);
-          itemCard.appendChild(itemImage);
-          itemImage.appendChild(a);
-          itemImage.appendChild(fav);
-          fav.innerHTML="add to favorites";
-          a.appendChild(img);
-          itemCard.appendChild(itemInfo);
-          itemInfo.appendChild(h2);
-          itemInfo.appendChild(p1);
-          a.setAttribute('href', "review.html")
+          $(".item-container").append('<div class="item-card"> <div class="item-image"> <img src='+newPic+' class="item-thumb" alt=""> <button class="card-btn" type="button" id="qwe">add to favorites</button> </div> <div class="item-info"> <h2 class="item-name">'+newName+'</h2> <p class="item-short-description">'+newDescription+'</p></div></div>');
         }
         
       })
@@ -135,5 +100,35 @@ if(nxtBtns){
   })
 
 }
+var bearer = localStorage.getItem('jwt');
+//Add to fav script
+  favBtn = document.querySelector(".card-btn")
+  if(favBtn){
 
+    $(document).on('click', '.card-btn', function(){
+      
+      const newName = $(this).parent().siblings('.item-info').children('.item-name').text();
+      //console.log(newName);
+      const newDesc = $(this).parent().siblings('.item-info').children('.item-short-description').text();
+      //console.log(newDesc);
+      const newPrice = '10';
+      
+      let newData = new FormData();
+      newData.append('title', newName);
+      newData.append('detail', newDesc);
+      newData.append('price', newPrice);
+
+      axios({
+        method: 'post',
+        url: 'http://127.0.0.1:8000/api/v1/fav/auth/addtofav',
+        data: newData,
+        headers: {'Authorization': 'Bearer '+bearer}
+    })
+    .then(function (response) {
+      let result = (response.data);
+      console.log(result);
+    });
+                
+  });
+  }
 
