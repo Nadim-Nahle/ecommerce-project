@@ -1,5 +1,4 @@
 //Login script
-
 const loginBtn = document.querySelector("#login-btn");
 const emailLogin = document.getElementById("email-login");
 const passwordlogin = document.getElementById("password-login");
@@ -23,7 +22,7 @@ if(loginBtn){
         //console.log(jwt);
         localStorage.setItem('jwt', jwt);
         if(result.token_type == 'bearer'){
-          window.open('adminpanel.html');;
+          window.location.href='adminpanel.html';
         }     
    })
      
@@ -43,11 +42,31 @@ let newItem = document.querySelector(".new-item ");
       const itemName = document.getElementById("rest-name").value;
       const itemDescription = document.getElementById("rest-description").value;
       const itemPrice = document.getElementById("rest-description").value;
-      console.log(bearer);
-      let data = new FormData();
-      data.append('name', itemName);
-      data.append('detail', itemDescription);
-      data.append('price', itemPrice);
+      const itemPic = document.getElementById("rest-pic").value;
+      var y;
+      document.getElementById('rest-pic');
+      function getBase64(file) {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.readAsDataURL(file);
+          reader.onload = () => resolve(reader.result);
+          reader.onerror = error => reject(error);
+        });
+      }
+      var file = document.querySelector('#rest-pic').files[0];
+      getBase64(file).then(
+        data => console.log(data)
+      
+      
+      );
+      //console.log(bearer);
+      //console.log(y);
+      let newData = new FormData();
+      newData.append('name', itemName);
+      newData.append('detail', itemDescription);
+      newData.append('price', itemPrice);
+      newData.append('pic_link', )
+      
       
       axios({
           method: 'post',
@@ -81,7 +100,9 @@ let newItem = document.querySelector(".new-item ");
   .then(function (response) {
       let result = (response.data);
       localStorage.clear();
-      console.log(result)
+      //console.log(result);
+      window.location.href='login.html';
+
       });
 
   })
@@ -94,7 +115,18 @@ let newItem = document.querySelector(".new-item ");
       body.style.display='block';
     }
     else{
-      body.innerHTML="UNAUTHORIZED";
-      body.style.display='block';
+      window.location.href='login.html';
     }
+
   });
+
+  function createBrowserWindow() {
+    const remote = require('electron').remote;
+    const BrowserWindow = remote.BrowserWindow;
+    const win = new BrowserWindow({
+      height: 600,
+      width: 800
+    });
+  
+    win.loadURL('adminpanel.html');
+  }
