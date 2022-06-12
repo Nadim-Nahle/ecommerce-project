@@ -8,12 +8,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/item.css">
+    <link rel="stylesheet" href="css/newstyle.css">
     <title>items</title>
 </head>
-
-<body>
+<header class="header-dash">
+    <div class="container row">
+      <button class="nav-toggle" aria-label="open navigation">
+        <span class="hamburger"></span>
+      </button>
+      <a class="logo" href="#" >
+          <img src="./assets/img/newlogo.png" alt="store logo" />
+      </a>
+      <nav class="nav">
+        <ul class="nav__list nav__list--primary">
+          <li class="nav__item"><a href="#" class="nav__link">Home</a></li>
+        </ul>
+        <ul class="nav__list nav__list--secondary">
+          <li class="nav__item">
+            <button id='logout' class="" type="button">Logout</button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+<body class="body">
     
-
     <section class="item"> 
         <h2 class="item-category">items</h2>
         <button class="pre-btn"><img src="assets/img/arrow.png" alt=""></button>
