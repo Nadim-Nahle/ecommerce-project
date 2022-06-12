@@ -35,8 +35,17 @@
     overflow-x: auto;
     scroll-behavior: smooth;
   }
+  .item-containerr {
+    padding: 0 10vw;
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+  }
   
   .item-container::-webkit-scrollbar {
+    display: none;
+  }
+  .item-containerr::-webkit-scrollbar {
     display: none;
   }
   
