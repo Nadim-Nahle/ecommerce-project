@@ -106,6 +106,9 @@ if(nxtBtns){
           img.classList.add("item-thumb");
           img.src = newPic;
 
+          const fav = document.createElement("button");
+          fav.classList.add("card-btn");
+
           const h2 = document.createElement("h2");
           h2.classList.add("item-name");
           h2.innerHTML=newName;
@@ -117,6 +120,8 @@ if(nxtBtns){
           itemContainer.appendChild(itemCard);
           itemCard.appendChild(itemImage);
           itemImage.appendChild(a);
+          itemImage.appendChild(fav);
+          fav.innerHTML="add to favorites";
           a.appendChild(img);
           itemCard.appendChild(itemInfo);
           itemInfo.appendChild(h2);
