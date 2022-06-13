@@ -146,7 +146,7 @@ var bearer = localStorage.getItem('jwt');
       let result = (response.data);
       localStorage.clear();
       //console.log(result);
-      window.location.href='index.html';
+      location.href = 'file:///C:/xampp/htdocs/ecommerce-project/frontend-user/login.html';;
 
       });
 
@@ -183,4 +183,26 @@ var bearer = localStorage.getItem('jwt');
 
                
   })
+}
+
+var body = document.getElementById("body");
+window.addEventListener('load', (event) => {
+  if (bearer){
+    body.style.display='block';
+  }
+  else{
+    window.location.href='login.html';
+  }
+
+});
+
+function createBrowserWindow() {
+  const remote = require('electron').remote;
+  const BrowserWindow = remote.BrowserWindow;
+  const win = new BrowserWindow({
+    height: 600,
+    width: 800
+  });
+
+  win.loadURL('adminpanel.html');
 }
