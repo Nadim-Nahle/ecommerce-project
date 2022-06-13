@@ -102,9 +102,9 @@ if(nxtBtns){
 }
 var bearer = localStorage.getItem('jwt');
 //Add to fav script
-  favBtn = document.querySelector(".card-btn")
+  favBtn = document.querySelector(".item-container")
   if(favBtn){
-
+    console.log("dd");
     $(document).on('click', '.card-btn', function(){
       
       const newName = $(this).parent().siblings('.item-info').children('.item-name').text();
