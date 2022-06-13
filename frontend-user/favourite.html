@@ -9,7 +9,8 @@
 
     <link rel="stylesheet" href="css/item.css">
     <link rel="stylesheet" href="css/newstyle.css">
-    <title>items</title>
+    <title>Favorite items</title>
+    
 </head>
 <header class="header-dash">
     <div class="container row">
@@ -21,7 +22,7 @@
       </a>
       <nav class="nav">
         <ul class="nav__list nav__list--primary">
-          <li class="nav__item"><a href="#" class="nav__link">Home</a></li>
+          <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
         </ul>
         <ul class="nav__list nav__list--primary">
           <li class="nav__item"><a href="item.html" class="nav__link">Items</a></li>
@@ -38,26 +39,19 @@
 <body class="body">
     
     <section class="item"> 
-        <h2 class="item-category">items</h2>
+        <h2 class="item-category">Favorite items</h2>
         <button class="pre-btn"><img src="assets/img/arrow.png" alt=""></button>
         <button class="nxt-btn"><img src="assets/img/arrow.png" alt=""></button>
         <div class="item-containerr">
-            <div class="item-card">
-                <div class="item-image">
-                    <img src="images/card2.jpg" class="item-thumb" alt="">
-                    <button type='submit' class="card-btn">add to favorites</button>
-                </div>
-                <div class="item-info">
-                    <h2 class="item-name">name</h2>
-                    <p class="item-short-description">a short line about the item..</p>
-                </div>
-            </div>
+            
         
         </div>
+        <button class="favio"></button>
     </section>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="js/rest.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
     <script src="js/apis.js"></script>
 </body>
 </html>

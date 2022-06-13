@@ -132,3 +132,54 @@ var bearer = localStorage.getItem('jwt');
   });
   }
 
+  //Logout Script
+  let logoutBtn = document.getElementById("logout");
+  logoutBtn.addEventListener("click", function(event){
+    //console.log('s');
+    axios({
+      method: 'post',
+      url: 'http://127.0.0.1:8000/api/v1/user/auth/logout',
+      headers: {'Authorization': 'Bearer '+bearer}
+  })
+  .then(function (response) {
+      let result = (response.data);
+      localStorage.clear();
+      //console.log(result);
+      window.location.href='index.html';
+
+      });
+
+  })
+
+  //Get Fav Script
+
+  let newFav = document.querySelector(".favio")
+  if(newFav){
+  window.addEventListener('load', (event) => {
+    let data = new FormData();
+    axios({
+      method: 'get',
+      url: 'http://127.0.0.1:8000/api/v1/fav/auth/fav',
+      data: data,
+      headers: {'Authorization': 'Bearer '+bearer}
+  })
+      .then(function(response) {
+        
+        let result=(response.data);
+        //console.log(result.favourites.length);
+        for (let i =0; i<result.favourites.length; i++){
+          newName = (result.favourites[i].title);
+          //console.log(newName);
+          newDescription =(result.favourites[i].detail);
+          //console.log(newDescription);
+          newPic =(result.favourites[i].pic_link);
+          console.log(newPic);
+          
+          $(".item-containerr").append('<div class="item-card"> <div class="item-image"> <img src='+newPic+' class="item-thumb" alt=""> </div> <div class="item-info"> <h2 class="item-name">'+newName+'</h2> <p class="item-short-description">'+newDescription+'</p></div></div>');
+        }
+        
+      })
+
+               
+  })
+}
