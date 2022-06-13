@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('name');
             $table->text('detail');
             $table->text('category');
+            $table->text('pic_link');
+            $table->text('price');
             $table->timestamps();
         });
     }

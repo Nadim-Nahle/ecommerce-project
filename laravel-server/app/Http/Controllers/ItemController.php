@@ -10,7 +10,12 @@ class ItemController extends Controller
 {
     //GET ALL ITEMS CONTROLLER
     public function getAllItems($id = null){
-        $items = Item::all();
+        $items = item::all();
+            foreach ($items as $items) {
+                $category = Category::find($items->id);
+                
+            }
+
         
         return response()->json([
             "status" => "success",
