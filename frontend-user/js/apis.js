@@ -111,6 +111,7 @@ var bearer = localStorage.getItem('jwt');
       //console.log(newName);
       const newDesc = $(this).parent().siblings('.item-info').children('.item-short-description').text();
       //console.log(newDesc);
+      $(this).hide();
       const newPrice = '10';
       
       let newData = new FormData();
@@ -173,7 +174,7 @@ var bearer = localStorage.getItem('jwt');
           newDescription =(result.favourites[i].detail);
           //console.log(newDescription);
           newPic =(result.favourites[i].pic_link);
-          console.log(newPic);
+          //console.log(newPic);
           
           $(".item-containerr").append('<div class="item-card"> <div class="item-image"> <img src='+newPic+' class="item-thumb" alt=""> </div> <div class="item-info"> <h2 class="item-name">'+newName+'</h2> <p class="item-short-description">'+newDescription+'</p></div></div>');
         }
