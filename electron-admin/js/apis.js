@@ -55,23 +55,20 @@ let newItem = document.querySelector(".new-item ");
       }
       var file = document.querySelector('#rest-pic').files[0];
       getBase64(file).then(
-        data => console.log(data)
-      
-      
-      );
-      //console.log(bearer);
-      //console.log(y);
-      let newData = new FormData();
+        data => {
+          var pic  = data 
+          console.log(pic)
+          let newData = new FormData();
       newData.append('name', itemName);
       newData.append('detail', itemDescription);
       newData.append('price', itemPrice);
-      newData.append('pic_link', )
+      newData.append('pic_link',pic )
       
       
       axios({
           method: 'post',
           url: 'http://127.0.0.1:8000/api/v1/admin/auth/additem',
-          data: data,
+          data: newData,
           headers: {'Authorization': 'Bearer '+bearer}
       })
       .then(function (response) {
@@ -84,7 +81,14 @@ let newItem = document.querySelector(".new-item ");
           newItem.innerHTML = 'New Item Added !!!!!';
         }
                      
-      })
+      })     
+        },
+           
+      );
+      //console.log(bearer);
+      //console.log(y);
+      
+      
       
   })
   }
@@ -130,3 +134,4 @@ let newItem = document.querySelector(".new-item ");
   
     win.loadURL('adminpanel.html');
   }
+  
